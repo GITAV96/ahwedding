@@ -38,6 +38,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* --- Guest Personalization (URL ?guest=Name) --- */
+    const urlParams = new URLSearchParams(window.location.search);
+    let guestNameParam = urlParams.get('guest');
+    
+    if (guestNameParam && guestNameParam.trim() !== '') {
+        guestNameParam = guestNameParam.trim();
+        
+        // Update the display name
+        const guestNameDisplay = document.getElementById('dynamicGuestName');
+        if (guestNameDisplay) {
+            guestNameDisplay.textContent = guestNameParam;
+        }
+        
+        // Auto-fill the RSVP form name field mapping
+        const formNameInput = document.getElementById('name');
+        if (formNameInput) {
+            formNameInput.value = guestNameParam;
+        }
+    }
+
     /* --- Heart Rain Background Effect --- */
     const rainContainer = document.getElementById('heartRainContainer');
     if (rainContainer) {
@@ -183,10 +203,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 6000);
             })
             .catch(error => {
+                console.error("Fetch error details:", error);
                 submitBtn.innerHTML = originalBtnHtml;
                 submitBtn.disabled = false;
                 
-                formMessage.innerText = "Failed to connect to the server. Please try again later.";
+                formMessage.innerText = "Failed to connect to the server.";
                 formMessage.style.color = '#d32f2f';
                 formMessage.style.backgroundColor = '#ffebee';
                 
