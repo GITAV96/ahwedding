@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hansani & Ashan - Wedding Invitation</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo.jpeg" type="image/jpeg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400..900&family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="heart-container" id="openInviteBtn">
+                <svg class="heart-svg" viewBox="0 0 32 29.6">
+                    <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+                    c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+                </svg>
+                <div class="initials">H<span class="amp">&amp;</span>A</div>
+            </div>
+            <p class="tap-text">Tap to Open</p>
+        </div>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="bgMusic" loop>
+        <source src="assets/music/Background%20Music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Heart Rain Container -->
+    <div id="heartRainContainer" class="heart-rain-container"></div>
+
+    <!-- Background Floral Elements (Top Left and Bottom Right) -->
+    <div class="floral-bg corner-top-left"></div>
+    <div class="floral-bg corner-bottom-right"></div>
+    <div class="floral-bg corner-top-right"></div>
+    <div class="floral-bg corner-bottom-left"></div>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="section hero-section animate-on-scroll">
+        <div class="hero-content">
+            <div class="logo">
+                <img src="assets/images/logo.jpeg" alt="Hansani & Ashan Logo" style="display: block; margin: 0 auto; max-width: 150px; height: auto;">
+            </div>
+
+            <h1 class="couple-names">
+                <span class="name-top">HANSANI</span><br>
+                <span class="ampersand">&amp;</span><br>
+                <span class="name-bottom">ASHAN</span>
+            </h1>
+
+            <p class="parents-text">
+                MR M.P.N. KUMARA & MRS A.R.P. ATHTHANAYAKA<br>
+                TOGETHER WITH<br>
+                MR K.T.N. GAMINI & MRS L.E.D. SANDAMALI EHALAPITIYA
+            </p>
+            
+            <p class="invite-text">
+                REQUEST THE HONOUR OF YOUR PRESENCE<br>
+                <span class="guest-name"><?php echo isset($_GET['guest']) && !empty($_GET['guest']) ? htmlspecialchars($_GET['guest']) : 'You'; ?></span><br>
+                <div class="separator-line"></div>
+                TO CELEBRATE THE MARRIAGE OF THEIR BELOVED CHILDREN
+            </p>
+
+            <h2 class="date-text">ON FRIDAY, 14<sup>TH</sup> AUGUST 2026</h2>
+        </div>
+    </section>
+
+    <!-- 2. Event Details Section -->
+    <section id="event-details" class="section details-section animate-on-scroll">
+        <div class="details-content">
+            <div class="wedding-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">09:30 AM</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">Guest Arrival</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00 AM</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">Poruwa Ceremony</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">04:00 PM</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">Event Concludes</div>
+                </div>
+            </div>
+            
+            <h3 class="venue-name">@ WASALA BANQUETS</h3>
+            <p class="venue-location">KIRINDIWELA, RADAWANA</p>
+        </div>
+    </section>
+
+    <!-- 3. Story / Message Section -->
+    <section id="story" class="section story-section animate-on-scroll">
+        <h2 class="section-title">Welcome</h2>
+        <div class="story-content">
+            <p>We are so, so excited to be sharing this beautiful milestone with all the people we love. Your presence in our lives means everything to us, and we cannot wait to eat, drink, and dance the day away with you! Please explore this page for more details about our big day, and don't forget to RSVP!</p>
+        </div>
+    </section>
+
+    <!-- 4. Countdown Timer -->
+    <section id="countdown" class="section countdown-section animate-on-scroll">
+        <h2 class="section-title">Countdown to Forever</h2>
+        <div id="clock" class="countdown-clock">
+            <div class="time-box">
+                <span id="days" class="number">00</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="time-box">
+                <span id="hours" class="number">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="time-box">
+                <span id="minutes" class="number">00</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="time-box">
+                <span id="seconds" class="number">00</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. RSVP Form -->
+    <section id="rsvp" class="section rsvp-section animate-on-scroll">
+        <div class="rsvp-container">
+            <h2 class="section-title">RSVP</h2>
+            <p class="rsvp-deadline">RSVP BEFORE 20<sup>TH</sup> JULY 2026</p>
+            
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label for="name">Full Name(s) *</label>
+                    <input type="text" id="name" name="name" required placeholder="John & Jane Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+94 77 123 4567">
+                </div>
+
+                <div class="form-group">
+                    <label for="attendance">Will you attend? *</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="yes">Joyfully Accept</option>
+                        <option value="no">Regretfully Decline</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Leave a message for the couple (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Can't wait!"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span>Send RSVP</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+                
+                <div id="formMessage" class="form-message hidden">
+                    Thanks for your response!
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 6. Location Section -->
+    <section id="location" class="section location-section animate-on-scroll">
+        <h2 class="section-title">Getting There</h2>
+        <div class="map-container">
+            <!-- Embedded Google Map -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.8756569580623!2d80.08738827588647!3d7.023899117144301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fe2b814fed59%3A0xd7692a92999e55a7!2sWasala%20Banquets%20and%20Nature%20Resort!5e0!3m2!1sen!2slk!4v1776098910264!5m2!1sen!2slk" 
+                width="100%" 
+                height="400" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="address-details">
+            <p><strong>Wasala Banquets</strong></p>
+            <p>Kirindiwela, Radawana</p>
+            <a href="https://maps.app.goo.gl/YtnUUUohPNsbdrdw6" class="directions-btn" target="_blank">Get Directions</a>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer class="footer">
+        <div class="thank-you">Thank You!</div>
+        <div class="contact-info">
+            <p>For any queries, please contact:</p>
+            <p>HANSANI - <a href="tel:0775824178">077 582 4178</a> | ASHAN - <a href="tel:0778211711">077 821 1711</a></p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
