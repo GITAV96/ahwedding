@@ -167,32 +167,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 message: document.getElementById('message').value
             };
 
-            fetch('rsvp.php', {
+            fetch('https://formspree.io/f/mnjlqzdk', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify(formData)
             })
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    return response.json().catch(() => ({})); 
+                } else {
+                    throw new Error("Formspree submission failed.");
+                }
+            })
             .then(data => {
                 submitBtn.innerHTML = originalBtnHtml;
                 submitBtn.disabled = false;
                 
-                if (data.success) {
-                    if (formData.attendance === 'yes') {
-                        formMessage.innerText = "Thank you! We can't wait to see you there.";
-                    } else {
-                        formMessage.innerText = "Thank you for letting us know. We'll miss you!";
-                    }
-                    formMessage.style.color = '#2e7d32';
-                    formMessage.style.backgroundColor = '#e8f5e9';
-                    rsvpForm.reset();
+                // Formspree implicitly means success if it reaches here and response.ok was true
+                if (formData.attendance === 'yes') {
+                    formMessage.innerText = "Thank you! We can't wait to see you there.";
                 } else {
-                    formMessage.innerText = "Oh no, there was an error saving your RSVP. Please try again.";
-                    formMessage.style.color = '#d32f2f';
-                    formMessage.style.backgroundColor = '#ffebee';
+                    formMessage.innerText = "Thank you for letting us know. We'll miss you!";
                 }
+                formMessage.style.color = '#2e7d32';
+                formMessage.style.backgroundColor = '#e8f5e9';
+                rsvpForm.reset();
                 
                 formMessage.classList.remove('hidden');
                 formMessage.style.display = 'block';
