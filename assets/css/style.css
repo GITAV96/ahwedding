@@ -214,8 +214,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .corner-top-left {
-    top: -10px;
-    left: -10px;
+    top: -15px;
+    left: -20px;
+    transform: rotate(10deg);
 }
 
 .corner-top-right {
@@ -231,8 +232,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .corner-bottom-right {
-    bottom: -10px;
-    right: -10px;
+    bottom: -15px;
+    right: -15px;
     transform: scaleX(-1) scaleY(-1);
 }
 
@@ -318,8 +319,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
 }
 .couple-names-img {
-    max-width: 350px;
-    width: 70%;
+    max-width: 340px;
+    width: 60%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -367,7 +368,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .date-text {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     letter-spacing: 2px;
     color: var(--text-dark);
     margin: 20px 0 0 0;
@@ -801,7 +802,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .date-text {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     
     .reception-text {
