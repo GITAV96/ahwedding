@@ -83,8 +83,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .heart-container {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 135px;
+    height: 135px;
     margin: 0 auto;
     cursor: pointer;
     animation: pulse 2s infinite ease-in-out;
@@ -98,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     filter: drop-shadow(0 0 10px rgba(89, 173, 199, 0.2));
     transition: transform 0.5s ease;
+    overflow: visible;
 }
 
 .heart-container:hover .heart-svg {
