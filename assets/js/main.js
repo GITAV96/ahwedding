@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 message: document.getElementById('message').value
             };
 
-            fetch('https://formspree.io/f/mnjlqzdk', {
+            fetch('https://helaathosu.lk/save-info', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
