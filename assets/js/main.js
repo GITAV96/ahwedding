@@ -172,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
                 },
                 body: JSON.stringify(formData)
             })
@@ -180,14 +179,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     return response.json().catch(() => ({})); 
                 } else {
-                    throw new Error("Formspree submission failed.");
+                    return response.json().catch(() => ({})).then(body => {
+                        throw new Error(body.message || `Server error: ${response.status}`);
+                    });
                 }
             })
             .then(data => {
                 submitBtn.innerHTML = originalBtnHtml;
                 submitBtn.disabled = false;
                 
-                // Formspree implicitly means success if it reaches here and response.ok was true
                 if (formData.attendance === 'yes') {
                     formMessage.innerText = "Thank you! We can't wait to see you there.";
                 } else {
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.innerHTML = originalBtnHtml;
                 submitBtn.disabled = false;
                 
-                formMessage.innerText = "Failed to connect to the server.";
+                formMessage.innerText = "Failed to submit. Please try WhatsApp instead.";
                 formMessage.style.color = '#d32f2f';
                 formMessage.style.backgroundColor = '#ffebee';
                 
