@@ -161,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
 
             const formData = {
+                type: document.querySelector('[name="type"]')?.value || 'wedding',
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 attendance: document.getElementById('attendance').value,
